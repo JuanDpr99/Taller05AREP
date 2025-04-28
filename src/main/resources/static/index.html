@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Propiedades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Gestión de Propiedades</h1>
+    <h2>Administra tus propiedades fácilmente</h2>
+</header>
+
+<section class="search-bar">
+    <input type="text" id="search" placeholder="Buscar por id">
+    <button onclick="searchProperty()">Buscar</button>
+</section>
+
+<main>
+    <aside class="filter-section">
+        <h3>Filtros</h3>
+        <label>Ubicación: <input type="text" id="location"></label>
+        <label>Precio: <input type="number" id="price"></label>
+        <label>Tamaño: <input type="number" id="size"></label>
+        <button onclick="applyFilters()">Aplicar Filtros</button>
+    </aside>
+
+    <section class="property-list">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dirección</th>
+                <th>Precio</th>
+                <th>Tamaño</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody id="property-table">
+            <!-- Propiedades cargadas dinámicamente -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button onclick="prevPage()">Anterior</button>
+            <span id="page-info">Página 1</span>
+            <button onclick="nextPage()">Siguiente</button>
+        </div>
+        <button class="add-property-btn" onclick="showAddForm()">Agregar Propiedad</button>
+    </section>
+</main>
+
+<div id="add-property-form" class="hidden">
+    <h3>Agregar Propiedad</h3>
+    <label>Dirección: <input type="text" id="new-address"></label>
+    <label>Precio: <input type="number" id="new-price"></label>
+    <label>Tamaño: <input type="number" id="new-size"></label>
+    <label>Descripción: <textarea id="new-description"></textarea></label>
+    <button onclick="saveProperty()">Guardar</button>
+    <button onclick="closeForm()">Cancelar</button>
+</div>
+
+<div id="feedback" class="feedback hidden"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
